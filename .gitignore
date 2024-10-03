@@ -1,0 +1,8 @@
+# ignore all .env files
+*.env
+
+# ignore deno cache directory
+app-cache/
+
+# ignore .DS_Store file
+.DS_Store
