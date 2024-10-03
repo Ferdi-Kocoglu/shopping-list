@@ -1,13 +1,13 @@
 version: "3.4"
 
 services:
-  shopping-lists:
-    build: shopping-lists
-    image: shopping-lists_img
+  app:
+    build: .
+    image: app
     restart: "no"
     volumes:
-      - ./shopping-lists:/app
-      - ./app-cache/:/app-cache
+      - ./:/app
+      - ./:/app-cache
     ports:
       - 7777:7777
     depends_on:
@@ -17,28 +17,28 @@ services:
       - project.env
 
   database:
-    container_name: database-shopping-lists
+    container_name: database-server
     image: postgres:14.1
     restart: "no"
     env_file:
-      - project.env
+        - project.env
 
   flyway:
-    image: flyway/flyway:10.18.0-alpine
+    image: flyway/flyway:9.11.0-alpine
     depends_on:
       - database
     volumes:
-      - ./flyway/sql:/flyway/sql
+      - .:/flyway/sql
     command: -connectRetries=60 -baselineOnMigrate=true migrate
     env_file:
       - project.env
 
   e2e-playwright:
-      entrypoint: "/bin/true" # Prevent startup on docker-compose up
-      build: e2e-playwright
-      image: e2e-playwright
-      network_mode: host
-      depends_on:
-        - shopping-lists
-      volumes:
-        - ./e2e-playwright/tests:/e2e-playwright/tests
+    entrypoint: "/bin/true" # Prevent startup on docker-compose up
+    build: e2e-playwright
+    image: e2e-playwright
+    network_mode: host
+    depends_on:
+      - app
+    volumes:
+      - ./e2e-playwright/tests:/e2e-playwright/tests

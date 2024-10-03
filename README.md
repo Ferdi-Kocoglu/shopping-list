@@ -10,7 +10,7 @@ for managing multiple shopping lists collaboratively.
 
 ## Deployment
 
-The application is deployed at [your-deployment-url-here].
+The application is deployed at (https://shopping-list-1rvr.onrender.com).
 
 ## Running Locally
 
@@ -25,3 +25,29 @@ To run the application locally:
 
 Note: Make sure to set up the necessary environment variables in a `project.env`
 file before running the application.
+
+## project.env file example
+# Database configuration for PostgreSQL (running in container called "database-server")
+POSTGRES_USER=username
+POSTGRES_PASSWORD=password
+POSTGRES_DB=database
+
+# Database configuration for Flyway (used for database migrations)
+FLYWAY_USER=username
+FLYWAY_PASSWORD=password
+FLYWAY_URL=jdbc:postgresql://database-server:5432/database
+
+# Database configuration for PostgreSQL driver
+PGUSER=username
+PGPASSWORD=password
+PGHOST=database-server
+PGPORT=5432
+PGDATABASE=database
+
+# Deno cache location (avoid reloading depedencies over and over)
+DENO_DIR=/app-cache
+
+## To run the tests
+1. Ensure you have Docker and Docker Compose installed on your system.
+2. Navigate to the test directory.
+3. Run `docker compose run --entrypoint=npx e2e-playwright playwright test && docker compose rm -sf` in your terminal.

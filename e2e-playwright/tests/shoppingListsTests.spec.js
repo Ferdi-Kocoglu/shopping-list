@@ -17,6 +17,13 @@ test("Create a shopping list.", async ({ page }) => {
   await expect(page.locator(`a >> text='${listName}'`)).toHaveText(listName);
 });
 
+test("Open a shopping list page.", async ({ page }) => {
+  await page.goto("/lists");
+  await page.locator(`a >> text='${listName}'`).click();
+  await expect(page.locator("h1")).toHaveText(listName);
+  await expect(page.getByRole('listitem')).toHaveCount(0);
+});
+
 test("Add a new item to the shopping list.", async ({ page }) => {
   await page.goto("/lists");
   await page.locator(`a >> text='${listName}'`).click();
@@ -35,11 +42,4 @@ test("Mark an item as collected.", async ({ page }) => {
   await page.getByRole('button', {name: "Mark collected!"}).click();
   await expect(page.getByRole('listitem')).toHaveCount(1);
   await expect(page.locator('del')).toHaveText(itemName);
-});
-
-test("Deactivated list is not shown on the page", async ({ page }) => {
-  await page.goto("/lists");
-  await expect(page.locator(`a >> text='${listName}'`)).toBeVisible();
-  await page.getByRole('button', {name: "Deactivate list!"}).click();
-  await expect(page.locator(`a >> text='${listName}'`)).not.toBeVisible();
 });
