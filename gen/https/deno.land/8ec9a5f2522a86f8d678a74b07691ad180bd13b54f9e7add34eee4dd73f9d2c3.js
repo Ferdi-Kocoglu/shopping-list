@@ -1,4 +1,0 @@
-// Copyright 2018-2022 the Deno authors. All rights reserved. MIT license.
-// @deno-types="./_buffer.d.ts"
-export { Blob, Buffer, default } from "./_buffer.mjs";
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImh0dHBzOi8vZGVuby5sYW5kL3N0ZEAwLjEzMi4wL25vZGUvYnVmZmVyLnRzIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIENvcHlyaWdodCAyMDE4LTIwMjIgdGhlIERlbm8gYXV0aG9ycy4gQWxsIHJpZ2h0cyByZXNlcnZlZC4gTUlUIGxpY2Vuc2UuXG4vLyBAZGVuby10eXBlcz1cIi4vX2J1ZmZlci5kLnRzXCJcbmV4cG9ydCB7IEJsb2IsIEJ1ZmZlciwgZGVmYXVsdCB9IGZyb20gXCIuL19idWZmZXIubWpzXCI7XG4iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsMEVBQTBFO0FBQzFFLCtCQUErQjtBQUMvQixTQUFTLElBQUksRUFBRSxNQUFNLEVBQUUsT0FBTyxRQUFRLGdCQUFnQiJ9
