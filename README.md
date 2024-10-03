@@ -27,24 +27,24 @@ Note: Make sure to set up the necessary environment variables in a `project.env`
 file before running the application.
 
 ## project.env file example
-# Database configuration for PostgreSQL (running in container called "database-server")
+#Database configuration for PostgreSQL (running in container called "database-server")
 POSTGRES_USER=username
 POSTGRES_PASSWORD=password
 POSTGRES_DB=database
 
-# Database configuration for Flyway (used for database migrations)
+#Database configuration for Flyway (used for database migrations)
 FLYWAY_USER=username
 FLYWAY_PASSWORD=password
 FLYWAY_URL=jdbc:postgresql://database-server:5432/database
 
-# Database configuration for PostgreSQL driver
+#Database configuration for PostgreSQL driver
 PGUSER=username
 PGPASSWORD=password
 PGHOST=database-server
 PGPORT=5432
 PGDATABASE=database
 
-# Deno cache location (avoid reloading depedencies over and over)
+#Deno cache location (avoid reloading depedencies over and over)
 DENO_DIR=/app-cache
 
 ## To run the tests
